@@ -36,8 +36,8 @@ public class SMBOpp {
     }
 
 
-    public static void copyFrom1to2(NtlmPasswordAuthentication ntlmPasswordAuthentication1, String smbSource1, NtlmPasswordAuthentication ntlmPasswordAuthentication2,
-            String smbSource2) throws IOException {
+    private static void copyFrom1to2(NtlmPasswordAuthentication ntlmPasswordAuthentication1, String smbSource1, NtlmPasswordAuthentication ntlmPasswordAuthentication2,
+            String smbSource2) {
         try {
             SmbFile source = new SmbFile(smbSource1, ntlmPasswordAuthentication1);
 
@@ -62,7 +62,7 @@ public class SMBOpp {
 
     }
 
-    public static boolean checkLogin(String ip, NtlmPasswordAuthentication mycreds) throws UnknownHostException {
+    private static boolean checkLogin(String ip, NtlmPasswordAuthentication mycreds) throws UnknownHostException {
         UniAddress mydomaincontroller = UniAddress.getByName(ip);
         try {
             SmbSession.logon(mydomaincontroller, mycreds);
@@ -79,7 +79,7 @@ public class SMBOpp {
     }
 
 
-    public static void checkConnection(NtlmPasswordAuthentication auth, String path) throws IOException {
+    private static void checkConnection(NtlmPasswordAuthentication auth, String path) throws IOException {
 
 
         SmbFile smbFile = new SmbFile(path, auth);
